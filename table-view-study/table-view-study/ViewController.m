@@ -101,6 +101,18 @@
 	return nil;
 }
 
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        NSLog(@"swipe to delete");
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    } else if(editingStyle == UITableViewCellEditingStyleInsert){
+        
+    } else {
+        NSLog(@"Unhandled editing style ! %d", editingStyle);
+    }
+}
+
 
 // Configure the row selection code for any cells that you want to customize the row selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
