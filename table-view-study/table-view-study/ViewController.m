@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UITableViewCell *lastNameCell;
 @property (strong, nonatomic) UITableViewCell *shareCell;
 @property (strong, nonatomic) UITableViewCell *imageCell;
+@property (strong, nonatomic) UITableViewCell *detailCell;
 
 @property (strong, nonatomic) UITextField *firstNameText;
 @property (strong, nonatomic) UITextField *lastNameText;
@@ -52,6 +53,9 @@
     // construct imageCell, section 1, row 01
     self.imageCell = [[UITableViewCell alloc] init];
     self.imageCell.backgroundColor = UIColor.blackColor;
+    
+    // construct detailCell, section 2, row 02
+    self.detailCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DetailCell"];
 }
 
 #pragma Table View Data Source
@@ -68,7 +72,7 @@
     switch(section)
     {
         case 0:  return 2;  // section 0 has 2 rows
-        case 1:  return 2;  // section 1 has 2 rows
+        case 1:  return 3;  // section 1 has 3 rows
         default: return 0;
     };
 }
@@ -105,9 +109,55 @@
                 
                 return self.imageCell;
             }
+            case 2:
+            {
+                UILabel *countryLabel, *codeLabel, *continentLabel, *populationLabel;
+                UIButton *detailInfoButton;
+                
+                //create custom labels and button inside the cell view
+                CGRect detailCellFrame = CGRectMake(15.0, 0.0, 220, 25.0);
+                countryLabel = [[UILabel alloc] initWithFrame:detailCellFrame];
+                countryLabel.tag = 1;
+                [self.detailCell.contentView addSubview:countryLabel];
+                
+                detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                detailInfoButton.frame = CGRectMake(self.detailCell.contentView.bounds.size.width, 0.0, 90, 25.0);
+                [detailInfoButton setTitle:@"Detail Info"
+                                  forState:UIControlStateNormal];
+                [detailInfoButton addTarget:self
+                                     action:@selector(detailInfo:)
+                           forControlEvents:UIControlEventTouchUpInside];
+                [self.detailCell.contentView addSubview:detailInfoButton];
+                
+                detailCellFrame.origin.y += 25;
+                codeLabel = [[UILabel alloc] initWithFrame:detailCellFrame];
+                codeLabel.tag = 2;
+                [self.detailCell.contentView addSubview:codeLabel];
+                
+                detailCellFrame.origin.y += 25;
+                continentLabel = [[UILabel alloc] initWithFrame:detailCellFrame];
+                continentLabel.tag = 3;
+                [self.detailCell.contentView addSubview:continentLabel];
+                
+                detailCellFrame.origin.y += 25;
+                populationLabel = [[UILabel alloc] initWithFrame:detailCellFrame];
+                populationLabel.tag = 4;
+                [self.detailCell.contentView addSubview:populationLabel];
+                
+                countryLabel.text = @"Name: Korea Rep.";
+                codeLabel.text = @"Code: KOR";
+                continentLabel.text = @"Continent: Asia";
+                populationLabel.text = @"Population: 51313024";
+                
+                return self.detailCell;
+            }
         }
     }
     return nil;
+}
+
+- (void) detailInfo:(UIButton *)sender {
+    NSLog(@"Action of detailInfo");
 }
 
 #pragma Table View Delegate
@@ -153,4 +203,11 @@
     }
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat result = UITableViewAutomaticDimension;
+    if ([tableView isEqual:self.tableView] && indexPath.section == 1 && indexPath.row == 2){
+        result = 100.0f;
+    }
+    return result;
+}
 @end
