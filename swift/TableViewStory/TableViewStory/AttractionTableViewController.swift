@@ -12,6 +12,7 @@ import UIKit
 class AttractionTableViewController: UITableViewController{
     var attractionImages = [String]()
     var attractionNames = [String]()
+    var webAddresses = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,12 @@ class AttractionTableViewController: UITableViewController{
         "Spring Man's Fashion05"]
         
         attractionImages = ["cody1", "cody2", "cody3", "cody4", "cody5"]
+        
+        webAddresses = ["https://the-atlantic-pacific.com/",
+        "https://chroniclesofher.com/",
+        "https://thedaileigh.com/",
+        "https://www.eggcanvas.com/",
+        "http://thefashionguitar.com/"]
         
         tableView.estimatedRowHeight = 50
     }
@@ -49,5 +56,15 @@ class AttractionTableViewController: UITableViewController{
         cell.attractionImage.image = UIImage(named: attractionImages[row])
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowAttractionDetails"{
+            let detailViewController = segue.destination as! AttractionDetailViewController
+            
+            let myIndexPath = self.tableView.indexPathForSelectedRow!
+            let row = myIndexPath.row
+            detailViewController.webSite = webAddresses[row]
+        }
     }
 }

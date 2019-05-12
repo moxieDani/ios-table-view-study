@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OlR-3e-yVa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tqk-ay-kty">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Attraction Table View Controller-->
+        <!--Attractions-->
         <scene sceneID="8rn-jH-X1A">
             <objects>
                 <tableViewController id="OlR-3e-yVa" customClass="AttractionTableViewController" customModule="TableViewStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttractionTableCell" id="QUO-y3-vpc" customClass="AttractionTableViewCell" customModule="TableViewStory" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AttractionTableCell" id="QUO-y3-vpc" customClass="AttractionTableViewCell" customModule="TableViewStory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QUO-y3-vpc" id="X1s-20-rVE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL1-qc-xYO">
-                                            <rect key="frame" x="152" y="11" width="196" height="22"/>
+                                            <rect key="frame" x="152" y="11" width="170" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,6 +54,7 @@
                                 <connections>
                                     <outlet property="attractionImage" destination="sPM-Ts-wyI" id="tjS-md-cb2"/>
                                     <outlet property="attractionLabel" destination="wL1-qc-xYO" id="v0h-Iu-3e3"/>
+                                    <segue destination="KhZ-mR-Nfl" kind="push" identifier="ShowAttractionDetails" id="cVZ-L6-ax4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,10 +63,64 @@
                             <outlet property="delegate" destination="OlR-3e-yVa" id="98O-rU-VHX"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Attractions" id="U3u-lt-ial"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b9-J4-FrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.5" y="-187.5"/>
+            <point key="canvasLocation" x="991.20000000000005" y="-187.55622188905548"/>
+        </scene>
+        <!--Attraction Details-->
+        <scene sceneID="uD9-34-bHv">
+            <objects>
+                <viewController id="KhZ-mR-Nfl" customClass="AttractionDetailViewController" customModule="TableViewStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OZd-5J-0E1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-my-RBm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZDy-my-RBm" firstAttribute="top" secondItem="jqB-lH-VYi" secondAttribute="top" id="5Hg-QY-ikq"/>
+                            <constraint firstItem="ZDy-my-RBm" firstAttribute="leading" secondItem="OZd-5J-0E1" secondAttribute="leading" id="eV8-cL-N35"/>
+                            <constraint firstAttribute="trailing" secondItem="ZDy-my-RBm" secondAttribute="trailing" id="tUL-VM-SA2"/>
+                            <constraint firstItem="ZDy-my-RBm" firstAttribute="bottom" secondItem="jqB-lH-VYi" secondAttribute="bottom" id="zN7-Lo-DKn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jqB-lH-VYi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Attraction Details" id="A6I-ZC-1PP"/>
+                    <connections>
+                        <outlet property="webView" destination="ZDy-my-RBm" id="Fyv-7g-goG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEv-df-fyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="-188.45577211394306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l17-yK-mP9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tqk-ay-kty" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tce-sp-ikS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OlR-3e-yVa" kind="relationship" relationship="rootViewController" id="TfQ-sf-BC0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZT-bJ-F3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="-187.55622188905548"/>
         </scene>
     </scenes>
 </document>
