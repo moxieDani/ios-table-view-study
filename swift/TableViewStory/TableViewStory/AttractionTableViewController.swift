@@ -28,6 +28,7 @@ class AttractionTableViewController: UITableViewController{
     }
     
     //MARK: Table view data source
+    
     //Return Section's number
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,6 +39,7 @@ class AttractionTableViewController: UITableViewController{
         return attractionNames.count
     }
     
+    //테이블 뷰 컨트롤러가 표시할 새로운 셀을 필요로 할 때마다 이 메서드를 호출
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "AttractionTableCell", for: indexPath) as! AttractionTableViewCell
         

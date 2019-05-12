@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OlR-3e-yVa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OlR-3e-yVa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,25 +18,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttractionTableCell" id="QUO-y3-vpc" customClass="AttractionTableViewCell" customModule="TableViewStory" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttractionTableCell" id="QUO-y3-vpc" customClass="AttractionTableViewCell" customModule="TableViewStory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QUO-y3-vpc" id="X1s-20-rVE">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QUO-y3-vpc" id="X1s-20-rVE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL1-qc-xYO">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL1-qc-xYO">
                                             <rect key="frame" x="152" y="11" width="196" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPM-Ts-wyI">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sPM-Ts-wyI">
                                             <rect key="frame" x="27" y="0.0" width="107" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="PgR-L3-6nr"/>
+                                                <constraint firstAttribute="height" constant="44" id="buX-gC-5Ei"/>
+                                                <constraint firstAttribute="width" constant="107" id="dVC-DS-1Cd"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wL1-qc-xYO" firstAttribute="top" secondItem="X1s-20-rVE" secondAttribute="topMargin" id="3ox-0e-EeR"/>
+                                        <constraint firstItem="sPM-Ts-wyI" firstAttribute="centerY" secondItem="wL1-qc-xYO" secondAttribute="centerY" id="9Px-7y-MiP"/>
+                                        <constraint firstItem="wL1-qc-xYO" firstAttribute="bottom" secondItem="X1s-20-rVE" secondAttribute="bottomMargin" id="AKO-BG-dtZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wL1-qc-xYO" secondAttribute="trailing" constant="11" id="GtN-FP-Bmg"/>
+                                        <constraint firstItem="wL1-qc-xYO" firstAttribute="leading" secondItem="sPM-Ts-wyI" secondAttribute="trailing" constant="18" id="Smz-K0-S8X"/>
+                                        <constraint firstItem="sPM-Ts-wyI" firstAttribute="leading" secondItem="X1s-20-rVE" secondAttribute="leadingMargin" constant="11" id="a1g-h4-8Jr"/>
+                                        <constraint firstItem="sPM-Ts-wyI" firstAttribute="top" secondItem="X1s-20-rVE" secondAttribute="top" id="j2x-rC-g1q"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="attractionImage" destination="sPM-Ts-wyI" id="tjS-md-cb2"/>
@@ -52,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b9-J4-FrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="-168.6656671664168"/>
+            <point key="canvasLocation" x="53.5" y="-187.5"/>
         </scene>
     </scenes>
 </document>
