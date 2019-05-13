@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78068F0422885B3C00560735 /* AttractionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78068F0322885B3C00560735 /* AttractionDetailViewController.swift */; };
 		78CD9D5D225A36850058C907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CD9D5C225A36850058C907 /* AppDelegate.swift */; };
 		78CD9D5F225A36850058C907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CD9D5E225A36850058C907 /* ViewController.swift */; };
 		78CD9D62225A36850058C907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78CD9D60225A36850058C907 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78068F0322885B3C00560735 /* AttractionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewController.swift; sourceTree = "<group>"; };
 		78CD9D59225A36850058C907 /* TableViewStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CD9D5C225A36850058C907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78CD9D5E225A36850058C907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				78CD9D68225A36860058C907 /* Info.plist */,
 				78CD9D7C225A37D10058C907 /* AttractionTableViewController.swift */,
 				78CD9D7E225A38440058C907 /* AttractionTableViewCell.swift */,
+				78068F0322885B3C00560735 /* AttractionDetailViewController.swift */,
 			);
 			path = TableViewStory;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				78CD9D7F225A38440058C907 /* AttractionTableViewCell.swift in Sources */,
 				78CD9D5F225A36850058C907 /* ViewController.swift in Sources */,
+				78068F0422885B3C00560735 /* AttractionDetailViewController.swift in Sources */,
 				78CD9D7D225A37D10058C907 /* AttractionTableViewController.swift in Sources */,
 				78CD9D5D225A36850058C907 /* AppDelegate.swift in Sources */,
 			);

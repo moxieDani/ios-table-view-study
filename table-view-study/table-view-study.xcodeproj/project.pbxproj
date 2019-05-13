@@ -8,24 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		11BB0018223FA28C00B2C913 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0017223FA28C00B2C913 /* AppDelegate.m */; };
-		11BB001B223FA28C00B2C913 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB001A223FA28C00B2C913 /* ViewController.m */; };
+		11BB001B223FA28C00B2C913 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB001A223FA28C00B2C913 /* TableViewController.m */; };
 		11BB001E223FA28C00B2C913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11BB001C223FA28C00B2C913 /* Main.storyboard */; };
 		11BB0020223FA28E00B2C913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BB001F223FA28E00B2C913 /* Assets.xcassets */; };
 		11BB0023223FA28E00B2C913 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11BB0021223FA28E00B2C913 /* LaunchScreen.storyboard */; };
 		11BB0026223FA28E00B2C913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB0025223FA28E00B2C913 /* main.m */; };
+		78068F072288706700560735 /* MCUHeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78068F062288706700560735 /* MCUHeroCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		11BB0013223FA28C00B2C913 /* table-view-study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "table-view-study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BB0016223FA28C00B2C913 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11BB0017223FA28C00B2C913 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		11BB0019223FA28C00B2C913 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		11BB001A223FA28C00B2C913 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		11BB0019223FA28C00B2C913 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		11BB001A223FA28C00B2C913 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		11BB001D223FA28C00B2C913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11BB001F223FA28E00B2C913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11BB0022223FA28E00B2C913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11BB0024223FA28E00B2C913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11BB0025223FA28E00B2C913 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		78068F052288706700560735 /* MCUHeroCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCUHeroCell.h; sourceTree = "<group>"; };
+		78068F062288706700560735 /* MCUHeroCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCUHeroCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +63,15 @@
 			children = (
 				11BB0016223FA28C00B2C913 /* AppDelegate.h */,
 				11BB0017223FA28C00B2C913 /* AppDelegate.m */,
-				11BB0019223FA28C00B2C913 /* ViewController.h */,
-				11BB001A223FA28C00B2C913 /* ViewController.m */,
+				11BB0019223FA28C00B2C913 /* TableViewController.h */,
+				11BB001A223FA28C00B2C913 /* TableViewController.m */,
 				11BB001C223FA28C00B2C913 /* Main.storyboard */,
 				11BB001F223FA28E00B2C913 /* Assets.xcassets */,
 				11BB0021223FA28E00B2C913 /* LaunchScreen.storyboard */,
 				11BB0024223FA28E00B2C913 /* Info.plist */,
 				11BB0025223FA28E00B2C913 /* main.m */,
+				78068F052288706700560735 /* MCUHeroCell.h */,
+				78068F062288706700560735 /* MCUHeroCell.m */,
 			);
 			path = "table-view-study";
 			sourceTree = "<group>";
@@ -141,9 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11BB001B223FA28C00B2C913 /* ViewController.m in Sources */,
+				11BB001B223FA28C00B2C913 /* TableViewController.m in Sources */,
 				11BB0026223FA28E00B2C913 /* main.m in Sources */,
 				11BB0018223FA28C00B2C913 /* AppDelegate.m in Sources */,
+				78068F072288706700560735 /* MCUHeroCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ import UIKit
 class AttractionTableViewController: UITableViewController{
     var attractionImages = [String]()
     var attractionNames = [String]()
+    var webAddresses = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,17 @@ class AttractionTableViewController: UITableViewController{
         
         attractionImages = ["cody1", "cody2", "cody3", "cody4", "cody5"]
         
+        webAddresses = ["https://the-atlantic-pacific.com/",
+        "https://chroniclesofher.com/",
+        "https://thedaileigh.com/",
+        "https://www.eggcanvas.com/",
+        "http://thefashionguitar.com/"]
+        
         tableView.estimatedRowHeight = 50
     }
     
     //MARK: Table view data source
+    
     //Return Section's number
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,6 +46,7 @@ class AttractionTableViewController: UITableViewController{
         return attractionNames.count
     }
     
+    //테이블 뷰 컨트롤러가 표시할 새로운 셀을 필요로 할 때마다 이 메서드를 호출
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "AttractionTableCell", for: indexPath) as! AttractionTableViewCell
         
@@ -47,5 +56,15 @@ class AttractionTableViewController: UITableViewController{
         cell.attractionImage.image = UIImage(named: attractionImages[row])
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowAttractionDetails"{
+            let detailViewController = segue.destination as! AttractionDetailViewController
+            
+            let myIndexPath = self.tableView.indexPathForSelectedRow!
+            let row = myIndexPath.row
+            detailViewController.webSite = webAddresses[row]
+        }
     }
 }

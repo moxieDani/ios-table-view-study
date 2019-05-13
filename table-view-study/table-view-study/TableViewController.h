@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MCUHeroCell.h"
 
 @interface TableViewController : UITableViewController
 

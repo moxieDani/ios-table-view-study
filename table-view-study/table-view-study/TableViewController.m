@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nexstreaming VIS. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TableViewController.h"
 
 @interface TableViewController()
 
@@ -19,9 +19,13 @@
 @property (strong, nonatomic) UITextField *firstNameText;
 @property (strong, nonatomic) UITextField *lastNameText;
 
+@property (strong, nonatomic) NSArray *heroNames;
+@property (strong, nonatomic) NSArray *heroImages;
+
 @end
 
 @implementation TableViewController
+
 
 - (void)loadView
 {
@@ -56,6 +60,9 @@
     
     // construct detailCell, section 2, row 02
     self.detailCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DetailCell"];
+    
+    self.heroNames = [NSArray arrayWithObjects:@"CaptainAmerica", @"DoctorStrange", @"Hulk", @"IronMan", @"Spiderman", nil];
+    self.heroImages = [NSArray arrayWithObjects:@"captainAmerica", @"doctorStrange", @"hulk", @"ironMan", @"spiderman", nil];
 }
 
 #pragma Table View Data Source
@@ -63,7 +70,7 @@
 // Return the number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 // Return the number of rows for each section in your static table
@@ -73,6 +80,7 @@
     {
         case 0:  return 2;  // section 0 has 2 rows
         case 1:  return 3;  // section 1 has 3 rows
+        case 2: return [self.heroNames count];
         default: return 0;
     };
 }
@@ -152,6 +160,16 @@
                 return self.detailCell;
             }
         }
+        case 2:
+        {
+            MCUHeroCell *cell = (MCUHeroCell *)[self.tableView dequeueReusableCellWithIdentifier:@"HeroCell" forIndexPath:indexPath];
+            
+            NSInteger row = indexPath.row;
+            cell.MCUHeroName.text = self.heroNames[row];
+            cell.MCUHeroProfile.image = [UIImage imageNamed:self.heroImages[row]];
+           
+            return cell;
+        }
     }
     return nil;
 }
@@ -169,6 +187,7 @@
     {
         case 0: return @"Profile";
         case 1: return @"Social";
+        case 2: return @"MCU Heroes";
     }
     return nil;
 }
