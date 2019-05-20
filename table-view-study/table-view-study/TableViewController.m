@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UITextField *firstNameText;
 @property (strong, nonatomic) UITextField *lastNameText;
 
+@property (strong, nonatomic) UITableViewCell *heroCell;
 @property (strong, nonatomic) NSArray *heroNames;
 @property (strong, nonatomic) NSArray *heroImages;
 
@@ -162,13 +163,29 @@
         }
         case 2:
         {
-            MCUHeroCell *cell = (MCUHeroCell *)[self.tableView dequeueReusableCellWithIdentifier:@"HeroCell" forIndexPath:indexPath];
-            
-            NSInteger row = indexPath.row;
-            cell.MCUHeroName.text = self.heroNames[row];
-            cell.MCUHeroProfile.image = [UIImage imageNamed:self.heroImages[row]];
-           
-            return cell;
+			self.heroCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"heroCell"];
+			
+			UIImage *heroImage = [UIImage imageNamed:self.heroImages[indexPath.row]];
+			UIImageView *heroImageView = [[UIImageView alloc] initWithImage:heroImage];
+			[self.heroCell addSubview:heroImageView];
+			heroImageView.translatesAutoresizingMaskIntoConstraints = false;
+			
+			[heroImageView.centerYAnchor constraintEqualToAnchor:self.heroCell.centerYAnchor].active = true;
+			[heroImageView.topAnchor constraintEqualToAnchor:self.heroCell.topAnchor constant:-7].active = true;
+			[heroImageView.widthAnchor constraintEqualToConstant:113].active = true;
+			[heroImageView.heightAnchor constraintEqualToConstant:94].active = true;
+			[heroImageView.bottomAnchor constraintEqualToAnchor:self.heroCell.bottomAnchor].active = true;
+			[heroImageView.leadingAnchor constraintEqualToAnchor:self.heroCell.leadingAnchor constant:10].active = true;
+			
+			UILabel *heroLabel = [[UILabel alloc] init];
+			heroLabel.text = self.heroNames[indexPath.row];
+			[self.heroCell addSubview:heroLabel];
+			
+			heroLabel.translatesAutoresizingMaskIntoConstraints = false;
+			[heroLabel.leadingAnchor constraintEqualToAnchor:heroImageView.trailingAnchor constant:17].active = true;
+			[heroLabel.centerYAnchor constraintEqualToAnchor:heroImageView.centerYAnchor].active = true;
+			
+			return self.heroCell;
         }
     }
     return nil;
