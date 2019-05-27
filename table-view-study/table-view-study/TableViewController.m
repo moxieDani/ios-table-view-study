@@ -66,6 +66,7 @@
     self.heroImages = [NSArray arrayWithObjects:@"captainAmerica", @"doctorStrange", @"hulk", @"ironMan", @"spiderman", nil];
 }
 
+
 #pragma Table View Data Source
 
 // Return the number of sections
@@ -246,4 +247,11 @@
     }
     return result;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if(indexPath.row % 2 == 0)
+		cell.backgroundColor = UIColor.grayColor;
+}
+
 @end
